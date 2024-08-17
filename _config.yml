@@ -21,7 +21,7 @@ title                    : "Study and Research: Making Meaningful Contributions 
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "Giup Seo"
-description              : "“Welcome to my blog! I’m excited to share with you the insights and discoveries from my studies and research."
+description              : "Welcome to my blog! I’m excited to share with you the insights and discoveries from my studies and research."
 url                      : "https://GISTGiupSeo.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -113,10 +113,10 @@ analytics:
 
 # Site Author
 author:
-  name             : "Your Name"
+  name             : "Giup Seo"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an **amazing** person."
-  location         : "Somewhere"
+  bio              : "Welcome to my blog! I’m excited to share with you the insights and discoveries from my studies and research."
+  location         : "Gwangju"
   email            :
   links:
     - label: "Email"
