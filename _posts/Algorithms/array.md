@@ -88,13 +88,3 @@ title: "5. 배열"
       - 오름차순: list.sort()
       - 내림차순: list.sort(reverse=True)
           
-```python
-a = 13
-b = 4
-print(a & b) # AND / 4
-print(a | b) # OR / 13
-print(a ^ b) # XOR / 9
-print(~a) # NOT / -14
-print(a << 2) # 왼쪽 시프트 (a에 2^2를 곱한 것과 동일) / 52
-print(a >> 1) # 오른쪽 시프트 (a에 2^1를 곱한 것과 동일) / 6
-```
