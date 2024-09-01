@@ -42,49 +42,49 @@ title: "5. 배열"
   - 인덱스 (index)를 통한 직접 접근 (direct access) 
   - 배열안에 데이터 삽입 또는 삭제 시, 배열의 고정된 크기와 연속 메모리 할당을 보존하기 위해
   - 삽입 또는 삭제 후 배열 원소들을 이동시켜야 하기 때문에 속도가 느려질 수 있음. 맨 뒤 O(1), 맨 앞이나 중간 O(N) 
-  ###  - 정적 배열 (static array) 
-    - 사이즈 재조정 (resizing)이 불가능함
-    - 메모리 할당이 컴파일 시 한번만 이루어짐
-    - 크기 변경을 원할 시 새로운 배열을 만들어 기존 데이터들을 복사하여 수동으로 옮겨야함
-    - 또한, 이전 배열의 메모리 할당을 수동으로 취소해야함
+###  - 정적 배열 (static array) 
+  - 사이즈 재조정 (resizing)이 불가능함
+  - 메모리 할당이 컴파일 시 한번만 이루어짐
+  - 크기 변경을 원할 시 새로운 배열을 만들어 기존 데이터들을 복사하여 수동으로 옮겨야함
+  - 또한, 이전 배열의 메모리 할당을 수동으로 취소해야함
 ###  - 동적 배열 (dynamic array)
-        - 실행중 사이즈 재조정이 가능함
-        - 메모리 할당이 실행중 가능함
-        - 동적 배열은 정적 배열에서 배열 변경 시 해야하는 작업들 (e.g., 1. 새로운 메모리 크기 할당, 2. 원소 이동, 3. 이전 배열 메모리 할당 취소)을 자동으로 해주기 때문에 사용하기 편리함     
+  - 실행중 사이즈 재조정이 가능함
+  - 메모리 할당이 실행중 가능함
+  - 동적 배열은 정적 배열에서 배열 변경 시 해야하는 작업들 (e.g., 1. 새로운 메모리 크기 할당, 2. 원소 이동, 3. 이전 배열 메모리 할당 취소)을 자동으로 해주기 때문에 사용하기 편리함     
 ###  2. 연결 리스트 (linked list)
-      - 노드 (node) 기반의 구조로 각 노드는 (1) 데이터, (2) 다음 혹은 이전 노드의 주소
-      - 리스트의 동적 크기 (dynamic size)
-      - 불연속 메모리 할당 (non-contiguous memory allocation)
-      - 헤드 노드로부터 각 노드의 주소를 통한 순차적 접근 (sequential access)
-      - 데이터 삽입 또는 삭제 시 노드의 주소를 알고 있다면 O(1) 소요
-      - 배열에 비해 데이터 삽입 또는 삭제 시 빠르고 효율적임 
+  - 노드 (node) 기반의 구조로 각 노드는 (1) 데이터, (2) 다음 혹은 이전 노드의 주소
+  - 리스트의 동적 크기 (dynamic size)
+  - 불연속 메모리 할당 (non-contiguous memory allocation)
+  - 헤드 노드로부터 각 노드의 주소를 통한 순차적 접근 (sequential access)
+  - 데이터 삽입 또는 삭제 시 노드의 주소를 알고 있다면 O(1) 소요
+  - 배열에 비해 데이터 삽입 또는 삭제 시 빠르고 효율적임 
 ###  - 단일 연결 리스트 (singly linked list)
-        - 각 노드가 다음 노드에 대한 주소만을 포함하고 있어서 한방향으로만 이동이 가능함
+  - 각 노드가 다음 노드에 대한 주소만을 포함하고 있어서 한방향으로만 이동이 가능함
 ###  - 이중 연결 리스트 (doubly linked list)
-        - 각 노드가 이전과 다음 노드의 주소 값을 모두 포함하고 있어서 양방향으로 이동이 가능함
+  - 각 노드가 이전과 다음 노드의 주소 값을 모두 포함하고 있어서 양방향으로 이동이 가능함
       
 ## __파이썬 리스트의 특징__
-    - 데이터 타입 이질성 (data type heterogeneity)
-    - 변경 가능한 콜렉션 (mutable collection)
-    - 동적 배열 (dynamic array)
-      -  연속 메모리 할당 (contiguous memory allocation)
-      -  인덱스 기반 직접 접근 (direct access)
-      -  자동으로 사이즈 재조정 가능, (e.g., 새로운 메모리 크기 할당, 원소 이동, 이전 메모리 할당 취소)
+  - 데이터 타입 이질성 (data type heterogeneity)
+  - 변경 가능한 콜렉션 (mutable collection)
+  - 동적 배열 (dynamic array)
+  -  연속 메모리 할당 (contiguous memory allocation)
+  -  인덱스 기반 직접 접근 (direct access)
+  -  자동으로 사이즈 재조정 가능, (e.g., 새로운 메모리 크기 할당, 원소 이동, 이전 메모리 할당 취소)
            
 ## __자주 활용되는 파이썬 리스트 기법__
   list = [1, 2, 3, 4, 5]
 ###  1. 데이터 추가 또는 삽입
-      - 맨 끝에 추가: list.append(element)
-      - 특정 인덱스 위치에 추가: list.insert(index, element)  
+  - 맨 끝에 추가: list.append(element)
+  - 특정 인덱스 위치에 추가: list.insert(index, element)  
 ###  2. 데이터 삭제
-      - 특정 위치: list.pop(index)
-      - 특정 데이터: list.remove(element)
+  - 특정 위치: list.pop(index)
+  - 특정 데이터: list.remove(element)
 ###  3. 데이터 개수
-      - 전체 데이터 개수: len(list)  
-      - 특정 데이터 개수: list.count(element) 
+  - 전체 데이터 개수: len(list)  
+  - 특정 데이터 개수: list.count(element) 
 ###  4. 인덱스 반환   
-      - 특정 데이터 처음 등장 인덱스: list.index(element)
+  - 특정 데이터 처음 등장 인덱스: list.index(element)
 ###  5. 데이터 정렬
-      - 오름차순: list.sort()
-      - 내림차순: list.sort(reverse=True)
+  - 오름차순: list.sort()
+  - 내림차순: list.sort(reverse=True)
           
