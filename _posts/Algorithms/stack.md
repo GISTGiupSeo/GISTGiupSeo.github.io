@@ -27,3 +27,33 @@ title: "6. 스택"
   - ItemType data[maxsize]: 스택의 데이터를 관리하는 배열임. 최대 maxsize개의 데이터를 관리함.
     
 
+ ```python
+stack = []
+max_size = 10
+
+def isFull(stack):
+  return len(stack) == max_size
+
+def isEmpty(stack):
+  return len(stack) == 0
+
+def push(stack, item):
+
+  if isFull(stack):
+    print("스택이 가득 찼습니다.")
+  else:
+    stack.append(item)
+    print("데이터가 추가되었습니다.")
+
+def pop(stack):
+  if isEmpty(stack):
+    print("스택이 비어 있습니다.")
+    return None
+  else:
+    return stack.pop()
+
+```
+
+####  - 파이썬에서 스택
+  - 리스트의 크기를 동적으로 관리하기 때문에 max_size, isFull(), isEmpty()를 사용할 필요가 없음.
+  - 또한, pop이나 push 함수를 따로 만들어서 사용하지 않아도 append랑 pop을 사용하면 됨. 
