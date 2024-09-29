@@ -22,7 +22,7 @@ title: "7. 큐"
   - ItemType pop (): 큐에 마지막에 푸시한 데이터를 팝하고, 그 데이터를 반환함.
   - boolean isFull(): 큐에 들어 있는 데이터 개수가 maxsize인지 확인해 boolean 값을 반환함. 가득차면 True, 아니면 False를 반환함.
   - boolean isEmpty(): 큐에 들어 있는 데이터가 하나도 없는지 확인해 boolean값을 반환함. 하나라도 있으면 False, 없으면 True를 반환함.
-####  - 상태
+####  상태
   - Int front: 큐에서 가장 마지막에 팝한 위치를 기록함.
   - Int rear: 큐에서 최근에 푸시한 데이터의 위치를 기록함.
   - ItemType data[maxsize]: 큐의 데이터를 관리하는 배열임. 최대 maxsize개의 데이터를 관리함.
