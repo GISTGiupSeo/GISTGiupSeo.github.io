@@ -51,69 +51,23 @@ title: "8. 해시"
       - 그래서 위 형태로 개선할 수 있음. 결과는 같음
         
 ###  3. 충돌 처리
-  - 작업대기열: 네트워크 통신을 할 때 다수의 클라이언트에서 서버에 작업을 요청하면 서버는 요청 순서대로 작업을 수행하도록 함.
-  - 이벤트 처리: 애플리케이션이나 시스템에서 사용자의 이벤트 (e.g., 키보드 입력, 마우스 처리)를 처리할 때 활용할 수 있음.
-
-###  큐의 ADT 
-####  연산
-  - void push (itemType item): 큐에 데이터를 푸쉬함.
-  - ItemType pop (): 큐에 마지막에 푸시한 데이터를 팝하고, 그 데이터를 반환함.
-  - boolean isFull(): 큐에 들어 있는 데이터 개수가 maxsize인지 확인해 boolean 값을 반환함. 가득차면 True, 아니면 False를 반환함.
-  - boolean isEmpty(): 큐에 들어 있는 데이터가 하나도 없는지 확인해 boolean값을 반환함. 하나라도 있으면 False, 없으면 True를 반환함.
-####  상태
-  - Int front: 큐에서 가장 마지막에 팝한 위치를 기록함.
-  - Int rear: 큐에서 최근에 푸시한 데이터의 위치를 기록함.
-  - ItemType data[maxsize]: 큐의 데이터를 관리하는 배열임. 최대 maxsize개의 데이터를 관리함.
+  - 서로 다른 키에 대해서 해시 함수의 결괏값이 같으면 충돌 (collision)이라고 함.
+    - 처리 방법:
+      - 체이닝 (separate chaining)
+        - 링크드리스트로 충돌한 데이터를 연결하는 방식으로 충돌을 해결함.
+        - 장점:
+          - 추가 저장을 통해 문제를 간단히 해결할 수 있음. 또한, 데이터 추가 및 삭제 과정이 간편함.
+        - 단점:
+          - 충돌이 많으면 링크드리스트 길이가 길어짐. 충돌이 자주 발생하는 곳에만 길이기 길어지기 때문에 해시 테이블의 전체적인 공간 활용도가 떨어질 수 있음.
+          - 검색 성능이 떨어져서 속도가 느려질 수 있음. 예를 들어서 충돌이 발생했을 때 해당하는 키의 값을 찾기 위해서는 링크드리스트의 맨 앞에서부터 탐색해야 함.
+     - 개방 주소법 (open addressing)
+        - 링크드리스트나처럼 데이터를 추가로 저장하여 메모리를 사용하는 방식이 아니라 해시 테이블 내부에 비어있는 공간을 활용함.
+        - 빈 공간을 찾기 위해 선형 탐사 (Linear probing), 이차 탐사 (quadratic probing), 이중 해싱 (double hashing probing) 방식 등이 있음
+        - 장점:
+          - 데이터 추가를 위한 메모리 사용이 필요 없음.
+        - 단점:
+          - 선형 탐사 방식의 경우 1칸씩 이동하며 빈 곳에 값을 넣기 때문에 특정 영역에 값들이 모이는 클러스터 (cluster) 문제가 있음. 클러스터가 생기면 겹칠 확률이 올라감.
+          - 이를 개선하기 위해 제곱수만큼 이동하는 이차 탐사, 해시 함수를 두 개 사용하는 이중 해싱 방식들이 사용됨.
+          - 또한, 데이터 삭제가 번거로운 이슈가 있음. 데이터 삭제 시 탐사 순서를 깰 수 있으며, 몇몇 데이터 접근을 어렵게 만들 수 있음.
+          - Tombstone을 사용하여 탐사 순서를 유지할 수 있음. 또한, tombstone이 많아지면 공간 효율성과 탐사 길이가 길어지기 때문에 주기적으로 재해싱하는 작업이 필요할 수 있음.
     
-
- ```python
-queue = []
-
-# 큐에 데이터 추가
-queue.append(1)
-queue.append(2)
-queue.append(3)
-
-# 큐의 맨 앞 데이터 제거
-first_item = queue.pop(0)
-print(first_item) # 1 출력
-
-# 쿠에 데이터 추가
-queue.append(4)
-queue.append(5)
-
-
-# 큐의 맨 앞 데이터 제거
-first_item = queue.pop(0)
-print(first_item)  # 2 출력
-
-```
-
-
- ```python
-from collections import deque
-
-queue = deque()
-
-# 큐에 데이터 추가
-queue.append(1)
-queue.append(2)
-queue.append(3)
-
-# 큐의 맨 앞 데이터 제거
-first_item = queue.popleft()
-print(first_item) # 1 출력
-
-# 쿠에 데이터 추가
-queue.append(4)
-queue.append(5)
-
-
-# 큐의 맨 앞 데이터 제거
-first_item = queue.popleft()
-print(first_item)  # 2 출력
-
-```
-
-####  - Double Ended Queue (DEQ) 활용 장점
-  - list의 pop(0)과 deq의 popleft()를 비교해보면 10만번 결과 기준으로 약 pop(0)는 0.79초 deq는 0.007초로 매우 크게 차이남
